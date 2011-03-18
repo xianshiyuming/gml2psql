@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://www.ordnancesurvey.co.uk/xml/namespaces/osgb" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:osgb="http://www.ordnancesurvey.co.uk/xml/namespaces/osgb" elementFormDefault="qualified" version="1.1">
+	<annotation>
+		<appinfo>OSOrthoMetadata.xsd 1.1 2002/11</appinfo>
+		<documentation xml:lang="en">Ordnance Survey, (c) Crown Copyright. All Rights Reserved November 2002.</documentation>
+		<documentation xml:lang="en">This schema defines metadata files for OS MasterMap orthorectified imagery.</documentation>
+	</annotation>
+	<!-- import the common schemas -->
+	<include schemaLocation="OSMeasures.xsd"/>
+	<include schemaLocation="OSGeometryTopology.xsd"/>
+	<!-- define the contents of orthorectified image metadata files -->
+	<element name="OrthoImageMetadata">
+		<complexType>
+			<sequence>
+				<element name="copyright" type="string"/>
+				<element name="kmReference">
+					<simpleType>
+						<restriction base="string">
+							<maxLength value="6"/>
+						</restriction>
+					</simpleType>
+				</element>
+				<element name="dateFlown" type="date" maxOccurs="4"/>
+				<element name="kmRectangle" type="osgb:RectanglePropertyType"/>
+				<element name="lensFocalLength" type="osgb:MillimetresMeasureType" maxOccurs="unbounded"/>
+				<element name="nominalFlyingHeight" type="osgb:MetresMeasureType" maxOccurs="unbounded"/>
+				<element name="nominalImageScale" type="string" maxOccurs="unbounded"/>
+				<element name="resolution" type="osgb:MetresMeasureType"/>
+				<element name="fileSize" type="osgb:MegaBytesMeasureType"/>
+				<element name="control">
+					<simpleType>
+						<restriction base="string">
+							<enumeration value="GPS and OSTN97"/>
+							<enumeration value="GPS and OSTN02"/>
+							<enumeration value="NG From Traditional Control"/>
+							<enumeration value="Land-Line"/>
+						</restriction>
+					</simpleType>
+				</element>
+				<element name="createdBy" minOccurs="1" maxOccurs="4">
+					<simpleType>
+						<restriction base="string">
+							<enumeration value="Ordnance Survey"/>
+							<enumeration value="Cities Revealed imagery sourced from The GeoInformation Group"/>
+							<enumeration value="Imagery sourced from Getmapping Plc"/>
+							<enumeration value="MAPS(R) imagery sourced from UK Perspectives"/>
+						</restriction>
+					</simpleType>
+				</element>
+				<element name="correctionType">
+					<simpleType>
+						<restriction base="string">
+							<enumeration value="Orthorectified"/>
+						</restriction>
+					</simpleType>
+				</element>
+				<element name="dateOfCompletion" type="date"/>
+				<element name="derivedFromAerialPhoto" maxOccurs="unbounded">
+					<complexType>
+						<sequence>
+							<element name="filmId" minOccurs="1" maxOccurs="1">
+								<simpleType>
+									<restriction base="string">
+										<maxLength value="10"/>
+									</restriction>
+								</simpleType>
+							</element>
+							<element name="frameNumber" type="integer" minOccurs="1" maxOccurs="1"/>												</sequence>
+					</complexType>
+				</element>
+			</sequence>
+		</complexType>
+	</element>
+</schema>

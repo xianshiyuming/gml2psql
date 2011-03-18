@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://www.ordnancesurvey.co.uk/xml/namespaces/osgb" xmlns:osgb="http://www.ordnancesurvey.co.uk/xml/namespaces/osgb" xmlns:gml="http://www.opengis.net/gml" xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="3.1">
+<annotation>
+<appinfo>OSQueryResult.xsd 3.1 2005/03/09</appinfo>
+<documentation xml:lang="en">Ordnance Survey, (c) Crown Copyright. All Rights Reserved March 2005.</documentation>
+<documentation xml:lang="en">See http://www.ordnancesurvey.co.uk/xml/schema for guidelines and related information</documentation>
+<documentation xml:lang="en">This schema defines the structure of a query.</documentation>
+</annotation>
+<!-- include types from other OS schemas -->
+<include schemaLocation="OSGeometryTopology.xsd"/>
+<include schemaLocation="OSMeasures.xsd"/>
+<include schemaLocation="OSSimpleTypes.xsd"/>
+<!--import OGC constructs and namespaces -->
+<import namespace="http://www.opengis.net/gml"/>
+<!-- ================================================================
+	Global element Declarations 
+	================================================================ -->
+<element name="OrderSummary" type="osgb:OrderSummaryType" substitutionGroup="gml:_Feature"/>
+<!-- ==============================================================
+	Type Declarations
+	============================================================== -->
+<!-- supporting type declarations-->
+<simpleType name="NonGeoChunkPolicyType">
+<restriction base="string">
+<enumeration value="Non-Geographic"/>
+</restriction>
+</simpleType>
+<simpleType name="GeoChunkPolicyType">
+<restriction base="string">
+<enumeration value="Geographic"/>
+</restriction>
+</simpleType>
+<!-- Order Summary declaration -->
+<complexType name="OrderSummaryType">
+<complexContent>
+<extension base="gml:AbstractFeatureType">
+<sequence>
+<element name="queryExtent" type="gml:GeometryPropertyType"/>
+<element name="supplyType" type="string"/>
+<element name="changesSinceDate" type="date" minOccurs="0"/>
+<element name="geometryFormat" type="string"/>
+<element name="themeList">
+<complexType>
+<sequence>
+<element name="theme" type="osgb:themeType" maxOccurs="unbounded"/>
+</sequence>
+</complexType>
+</element>
+<choice>
+<sequence>
+<element name="chunkingPolicy" type="osgb:NonGeoChunkPolicyType"/>
+<element name="chunkSize" type="osgb:MegaBytesMeasureType" minOccurs="0"/>
+</sequence>
+<sequence>
+<element name="chunkingPolicy" type="osgb:GeoChunkPolicyType"/>
+<element name="chunkSize" type="osgb:KilometresMeasureType" minOccurs="0"/>
+</sequence>
+</choice>
+</sequence>
+</extension>
+</complexContent>
+</complexType>
+</schema>

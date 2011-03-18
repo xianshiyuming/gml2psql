@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://www.ordnancesurvey.co.uk/xml/namespaces/osgb" xmlns:osgb="http://www.ordnancesurvey.co.uk/xml/namespaces/osgb" xmlns:gml="http://www.opengis.net/gml" xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" version="1.1">
+	<annotation>
+		<appinfo>OSAerialMetadata.xsd 1.1 2002/11</appinfo>
+		<documentation xml:lang="en">Ordnance Survey, (c) Crown Copyright. All Rights Reserved November 2002.</documentation>
+		<documentation xml:lang="en">This schema defines metadata files for OS MasterMap aerial photography.</documentation>
+	</annotation>
+	<!-- import the common schemas -->
+	<include schemaLocation="OSMeasures.xsd"/>
+	<import namespace="http://www.opengis.net/gml" schemaLocation="geometry.xsd"/>
+	<!-- define the contents of aerial photograph metadata files -->
+	<element name="AerialImageMetadata">
+		<complexType>
+			<sequence>
+				<element name="copyright" type="string"/>
+				<element name="flownBy" minOccurs="1" maxOccurs="1">
+					<simpleType>
+						<restriction base="string">
+							<enumeration value="Ordnance Survey"/>
+							<enumeration value="Getmapping PLC"/>
+							<enumeration value="IGN"/>
+							<enumeration value="Kampsax"/>
+							<enumeration value="Simmons"/>
+							<enumeration value="TGG"/>
+							<enumeration value="UK Perspectives"/>
+						</restriction>
+					</simpleType>
+				</element>
+				<element name="dateFlown" type="dateTime" minOccurs="1" maxOccurs="1">
+					<annotation>
+						<documentation xml:lang="en">accurate to minutes</documentation>
+					</annotation>
+				</element>
+				<element name="frameNumber" minOccurs="1" maxOccurs="1">
+					<simpleType>
+						<restriction base="integer">
+							<minInclusive value="1"/>
+							<maxInclusive value="1000"/>
+						</restriction>
+					</simpleType>
+				</element>
+				<element name="flightLine" minOccurs="1" maxOccurs="1">
+					<simpleType>
+						<restriction base="integer">
+							<minInclusive value="1"/>
+							<maxInclusive value="50"/>
+						</restriction>
+					</simpleType>
+				</element>
+				<element name="flyingHeight" type="osgb:MetresMeasureType" minOccurs="1" maxOccurs="1">
+					<annotation>
+						<documentation xml:lang="en">nominal height above sea level in metres.</documentation>
+					</annotation>
+				</element>
+				<element name="principlePoint" minOccurs="1" maxOccurs="1">
+					<complexType>
+						<sequence>
+							<element ref="gml:Point"/>
+						</sequence>
+					</complexType>
+				</element>
+				<element name="filmId" minOccurs="1" maxOccurs="1">
+					<simpleType>
+						<restriction base="string">
+							<maxLength value="10"/>
+						</restriction>
+					</simpleType>
+				</element>
+				<element name="camera" type="string" minOccurs="1" maxOccurs="1">
+					<annotation>
+						<documentation xml:lang="en">Make and model.</documentation>
+					</annotation>
+				</element>
+				<element name="lensSerialNumber" type="string" minOccurs="1" maxOccurs="1"/>
+				<element name="lensFocalLength" type="osgb:MillimetresMeasureType" minOccurs="1" maxOccurs="1"/>
+				<element name="aircraft" type="string" minOccurs="1" maxOccurs="1">
+					<annotation>
+						<documentation xml:lang="en">Aircraft registration</documentation>
+					</annotation>
+				</element>
+				<element name="film" type="string" minOccurs="1" maxOccurs="1"/>
+			</sequence>
+		</complexType>
+	</element>
+</schema>
