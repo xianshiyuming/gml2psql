@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://www.ordnancesurvey.co.uk/xml/namespaces/osgb" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:osgb="http://www.ordnancesurvey.co.uk/xml/namespaces/osgb" elementFormDefault="qualified" attributeFormDefault="unqualified" version="3.2">
+	<annotation>
+		<appinfo>OSSimpleTypes.xsd 3.2 2006/02/06</appinfo>
+		<documentation xml:lang="en">Ordnance Survey, (c) Crown Copyright. All Rights Reserved February 2006</documentation>
+		<documentation xml:lang="en">See http://www.ordnancesurvey.co.uk/xml/schema for guidelines and related information</documentation>
+		<documentation xml:lang="en">This schema defines the simple types used as properties on features.</documentation>
+	</annotation>
+	<!-- ================================================================
+	Simple Type Definitions 
+	================================================================ -->
+	<simpleType name="accuracyOfPositionType">
+		<restriction base="string">
+			<enumeration value="1.0m"/>
+			<enumeration value="2.5m"/>
+			<enumeration value="6.0m"/>
+			<enumeration value="8.0m"/>
+			<enumeration value="Unknown"/>
+		</restriction>
+	</simpleType>
+	<simpleType name="deliveryPointSuffixType">
+		<restriction base="string">
+			<maxLength value="2"/>
+		</restriction>
+	</simpleType>
+	<simpleType name="descriptiveGroupType">
+		<restriction base="string">
+			<enumeration value="A Road"/>
+			<enumeration value="B Road"/>
+			<enumeration value="Building"/>
+			<enumeration value="Buildings Or Structure"/>
+			<enumeration value="Built Environment"/>
+			<enumeration value="Ferry Connection"/>
+			<enumeration value="General Feature"/>
+			<enumeration value="General Surface"/>
+			<enumeration value="Glasshouse"/>
+			<enumeration value="Height Control"/>
+			<enumeration value="Historic Interest"/>
+			<enumeration value="Information Point"/>
+			<enumeration value="Inland Water"/>
+			<enumeration value="Landform"/>
+			<enumeration value="Motorway"/>
+			<enumeration value="Named Road"/>
+			<enumeration value="Natural Environment"/>
+			<enumeration value="Network Connection"/>
+			<enumeration value="Network Or Polygon Closing Geometry"/>
+			<enumeration value="Non Specification Detail"/>
+			<enumeration value="Path"/>
+			<enumeration value="Political Or Administrative"/>
+			<enumeration value="Rail"/>
+			<enumeration value="Road Or Track"/>
+			<enumeration value="Road Routing Information"/>
+			<enumeration value="Road Topology"/>
+			<enumeration value="Roadside"/>
+			<enumeration value="Structure"/>
+			<enumeration value="Terrain And Height"/>
+			<enumeration value="Tidal Water"/>
+			<enumeration value="Unclassified"/>
+		</restriction>
+	</simpleType>
+	<simpleType name="descriptiveTermType">
+		<restriction base="string">
+			<enumeration value="A Road"/>
+			<enumeration value="Air Height"/>
+			<enumeration value="Alley"/>
+			<enumeration value="Archway"/>
+			<enumeration value="B Road"/>
+			<enumeration value="Bench Mark"/>
+			<enumeration value="Bottom Of Cliff"/>
+			<enumeration value="Bottom Of Slope"/>
+			<enumeration value="Boulders"/>
+			<enumeration value="Boulders (Scattered)"/>
+			<enumeration value="Boundary Half Mereing"/>
+			<enumeration value="Boundary Post Or Stone"/>
+			<enumeration value="Buffer"/>
+			<enumeration value="Cliff"/>
+			<enumeration value="Compound"/>
+			<enumeration value="Coniferous Trees"/>
+			<enumeration value="Coniferous Trees (Scattered)"/>
+			<enumeration value="Coppice Or Osiers"/>
+			<enumeration value="County"/>
+			<enumeration value="Course Of Heritage"/>
+			<enumeration value="Culvert"/>
+			<enumeration value="Direction Of Flow"/>
+			<enumeration value="District"/>
+			<enumeration value="Disused Feature"/>
+			<enumeration value="Division"/>
+			<enumeration value="Electoral"/>
+			<enumeration value="Ferry"/>
+			<enumeration value="Foreshore"/>
+			<enumeration value="Heath"/>
+			<enumeration value="Inferred Property Closing Link"/>
+			<enumeration value="Land Use Change Polygon Closing Link"/>
+			<enumeration value="Local Street"/>
+			<enumeration value="Map Detail Traverse Station"/>
+			<enumeration value="Marsh Reeds Or Saltmarsh"/>
+			<enumeration value="Mean High Water (Springs)"/>
+			<enumeration value="Mean Low Water (Springs)"/>
+			<enumeration value="Minor Road"/>
+			<enumeration value="Motorway"/>
+			<enumeration value="Multi Surface"/>
+			<enumeration value="Narrow Gauge"/>
+			<enumeration value="Network Closing Link"/>
+			<enumeration value="Nonconiferous Trees"/>
+			<enumeration value="Nonconiferous Trees (Scattered)"/>
+			<enumeration value="Orchard"/>
+			<enumeration value="Outline"/>
+			<enumeration value="Overhead Construction"/>
+			<enumeration value="Parish"/>
+			<enumeration value="Parliamentary"/>
+			<enumeration value="Pedestrianised Street"/>
+			<enumeration value="Polygon Closing Link"/>
+			<enumeration value="Positioned Boulder"/>
+			<enumeration value="Positioned Coniferous Tree"/>
+			<enumeration value="Positioned Nonconiferous Tree"/>
+			<enumeration value="Primary Route"/>
+			<enumeration value="Private Road - Publicly Accessible"/>
+			<enumeration value="Private Road - Restricted Access"/>
+			<enumeration value="Public"/>
+			<enumeration value="Pylon"/>
+			<enumeration value="Ridge Or Rock Line"/>
+			<enumeration value="Road"/>
+			<enumeration value="Road Name Or Classification"/>
+			<enumeration value="Road Related Flow"/>
+			<enumeration value="Rock"/>
+			<enumeration value="Rock (Scattered)"/>
+			<enumeration value="Rough Grassland"/>
+			<enumeration value="Scree"/>
+			<enumeration value="Scrub"/>
+			<enumeration value="Site Of Heritage"/>
+			<enumeration value="Slope"/>
+			<enumeration value="Spot Height"/>
+			<enumeration value="Standard Gauge Track"/>
+			<enumeration value="Step"/>
+			<enumeration value="Structure"/>
+			<enumeration value="Switch"/>
+			<enumeration value="Top Of Cliff"/>
+			<enumeration value="Top Of Slope"/>
+			<enumeration value="Track"/>
+			<enumeration value="Traffic Calming"/>
+			<enumeration value="Triangulation Point Or Pillar"/>
+			<enumeration value="Trunk Road"/>
+			<enumeration value="Tunnel Edge"/>
+			<enumeration value="Unmade Path Alignment"/>
+			<enumeration value="Upper Level Of Communication"/>
+		</restriction>
+	</simpleType>
+	<simpleType name="makeType">
+		<restriction base="string">
+			<enumeration value="Manmade"/>
+			<enumeration value="Multiple"/>
+			<enumeration value="Natural"/>
+			<enumeration value="Unclassified"/>
+			<enumeration value="Unknown"/>
+		</restriction>
+	</simpleType>
+	<simpleType name="matchStatusType">
+		<restriction base="string">
+			<enumeration value="Unmatched"/>
+			<enumeration value="Matched"/>
+			<enumeration value="Matched With Discrepancy (Referred)"/>
+			<enumeration value="Matched With Discrepancy (Unresolved)"/>
+		</restriction>
+	</simpleType>
+	<simpleType name="multipleOccupancyCountType">
+		<restriction base="unsignedShort">
+			<minInclusive value="2"/>
+			<maxInclusive value="9999"/>
+		</restriction>
+	</simpleType>
+	<simpleType name="NatureOfRoadType">
+		<restriction base="string">
+			<enumeration value="Single Carriageway"/>
+			<enumeration value="Dual Carriageway"/>
+			<enumeration value="Slip Road"/>
+			<enumeration value="Roundabout"/>
+			<enumeration value="Enclosed Traffic Area Link"/>
+			<enumeration value="Traffic Island Link At Junction"/>
+			<enumeration value="Traffic Island Link"/>
+		</restriction>
+	</simpleType>
+	<simpleType name="orientationType">
+		<restriction base="unsignedShort">
+			<minInclusive value="0"/>
+			<maxInclusive value="3599"/>
+		</restriction>
+	</simpleType>
+	<simpleType name="physicalLevelType">
+		<restriction base="short">
+			<minInclusive value="-1"/>
+			<maxInclusive value="51"/>
+		</restriction>
+	</simpleType>
+	<simpleType name="physicalPresenceType">
+		<restriction base="string">
+			<enumeration value="Boundary"/>
+			<enumeration value="Closing"/>
+			<enumeration value="Edge / Limit"/>
+			<enumeration value="Extent"/>
+			<enumeration value="Indicator"/>
+			<enumeration value="Minor Detail"/>
+			<enumeration value="Moveable"/>
+			<enumeration value="Network"/>
+			<enumeration value="Obstructing"/>
+			<enumeration value="Overhead"/>
+		</restriction>
+	</simpleType>
+	<simpleType name="physicalStatusType">
+		<restriction base="string">
+			<enumeration value="Demolished"/>
+			<enumeration value="Existing"/>
+			<enumeration value="Planned"/>
+			<enumeration value="Unknown"/>
+		</restriction>
+	</simpleType>
+	<simpleType name="positionalQualityStringType">
+		<restriction base="string">
+			<enumeration value="Final"/>
+			<enumeration value="Provisional"/>
+		</restriction>
+	</simpleType>
+	<simpleType name="positionalQualityAccuracyType">
+		<restriction base="string">
+			<enumeration value="Approximate"/>
+			<enumeration value="Estimate"/>
+			<enumeration value="Postcode Sector Mean"/>
+			<enumeration value="Postcode Unit Mean"/>
+			<enumeration value="Surveyed"/>
+		</restriction>
+	</simpleType>
+	<simpleType name="postCodeStringType">
+		<restriction base="string">
+			<maxLength value="8"/>
+		</restriction>
+	</simpleType>
+	<simpleType name="postCodeTypeType">
+		<restriction base="string">
+			<enumeration value="Small"/>
+			<enumeration value="Large"/>
+		</restriction>
+	</simpleType>
+	<simpleType name="reasonForChangeType">
+		<restriction base="string">
+			<enumeration value="Attributes"/>
+			<enumeration value="Incomplete"/>
+			<enumeration value="Modified"/>
+			<enumeration value="New"/>
+			<enumeration value="Position"/>
+			<enumeration value="Reclassified"/>
+			<enumeration value="Restructured"/>
+			<enumeration value="Software"/>
+			<enumeration value="TextChange"/>
+		</restriction>
+	</simpleType>
+	<simpleType name="signType">
+		<restriction base="string">
+			<enumeration value="+"/>
+			<enumeration value="-"/>
+		</restriction>
+	</simpleType>
+	<simpleType name="structureTypeType">
+		<restriction base="string">
+			<enumeration value="Other Structure"/>
+			<enumeration value="Permanent Building"/>
+			<enumeration value="Unknown"/>
+		</restriction>
+	</simpleType>
+	<simpleType name="themeType">
+		<restriction base="string">
+			<enumeration value="Address"/>
+			<enumeration value="Administrative Boundaries"/>
+			<enumeration value="Buildings"/>
+			<enumeration value="Heritage And Antiquities"/>
+			<enumeration value="Land"/>
+			<enumeration value="Multi Occupancy"/>
+			<enumeration value="Non Postal"/>
+			<enumeration value="Being Built"/>
+			<enumeration value="Postal"/>
+			<enumeration value="Rail"/>
+			<enumeration value="Road Network"/>
+			<enumeration value="Road Routing Information"/>
+			<enumeration value="Roads Tracks And Paths"/>
+			<enumeration value="Structures"/>
+			<enumeration value="Terrain And Height"/>
+			<enumeration value="Water"/>
+		</restriction>
+	</simpleType>
+</schema>
