@@ -1,0 +1,1 @@
+gml2psql is a tool for loading spatial datasets using Geography Markup Language (GML) into a PostgreSQL relational database with PostGIS extensions. It is focussed on loading OS MasterMap data, but should be able to load GML using any GML Schema.
